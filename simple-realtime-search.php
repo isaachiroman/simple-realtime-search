@@ -4,7 +4,7 @@
  * Plugin URI:  https://github.com/isaachiroman/simple-realtime-search
  * Description: Realtime search using JSON data.
  * Version:     1.0.0
- * Author:      CuongNV
+ * Author:      isaachiroman
  * Author URI:  https://isaachiroman.com/
  * License:     GPLv2 or later
  * Text Domain: simple-realtime-search
