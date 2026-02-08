@@ -1,0 +1,401 @@
+/**
+ * JSON Search - Admin CSS
+ *
+ * @package Simple_Realtime_Search
+ */
+
+/* Container */
+.srs-wrap {
+    max-width: 800px;
+}
+
+.srs-container {
+    margin-top: 20px;
+}
+
+/* Card */
+.srs-card {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.srs-card-title {
+    margin: 0 0 16px 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0f0f1;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.srs-card-title .dashicons {
+    color: #2271b1;
+}
+
+/* Fields */
+.srs-field {
+    margin-bottom: 16px;
+}
+
+.srs-field label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.srs-input-small {
+    width: 80px;
+    padding: 6px 10px;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+}
+
+.srs-description {
+    color: #646970;
+    font-style: italic;
+    margin: 0 0 16px 0;
+}
+
+/* Toggle Switch */
+.srs-wrap .srs-toggle {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    cursor: pointer !important;
+    padding: 10px 0 !important;
+}
+
+.srs-wrap .srs-toggle input[type="checkbox"] {
+    position: absolute !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+.srs-wrap .srs-toggle-slider {
+    position: relative !important;
+    display: inline-block !important;
+    flex-shrink: 0 !important;
+    width: 40px !important;
+    height: 22px !important;
+    min-width: 40px !important;
+    min-height: 22px !important;
+    background-color: #b4b9be !important;
+    border: 2px solid #8c8f94 !important;
+    border-radius: 11px !important;
+    transition: all 0.3s ease !important;
+    box-sizing: border-box !important;
+}
+
+.srs-wrap .srs-toggle-slider::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 2px !important;
+    left: 2px !important;
+    width: 14px !important;
+    height: 14px !important;
+    background: #fff !important;
+    border-radius: 50% !important;
+    transition: transform 0.3s ease !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.srs-wrap .srs-toggle input:checked+.srs-toggle-slider {
+    background-color: #2271b1 !important;
+    border-color: #135e96 !important;
+}
+
+.srs-wrap .srs-toggle input:checked+.srs-toggle-slider::after {
+    transform: translateX(18px) !important;
+}
+
+.srs-wrap .srs-toggle-label {
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    color: #1d2327 !important;
+}
+
+/* Radio Group */
+.srs-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.srs-radio {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding: 12px 16px !important;
+    background: #f6f7f7 !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    transition: all 0.2s !important;
+    border: 2px solid transparent !important;
+}
+
+.srs-radio:hover {
+    background: #e8e8e8 !important;
+}
+
+.srs-radio input[type="radio"] {
+    position: absolute !important;
+    opacity: 0 !important;
+}
+
+.srs-radio-custom {
+    display: inline-block !important;
+    flex-shrink: 0 !important;
+    width: 20px !important;
+    height: 20px !important;
+    border: 2px solid #8c8f94 !important;
+    border-radius: 50% !important;
+    margin-top: 2px !important;
+    position: relative !important;
+    transition: all 0.2s !important;
+}
+
+.srs-radio-custom::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) scale(0) !important;
+    width: 10px !important;
+    height: 10px !important;
+    background: #2271b1 !important;
+    border-radius: 50% !important;
+    transition: transform 0.2s !important;
+}
+
+.srs-radio input:checked~.srs-radio-custom {
+    border-color: #2271b1 !important;
+}
+
+.srs-radio input:checked~.srs-radio-custom::after {
+    transform: translate(-50%, -50%) scale(1) !important;
+}
+
+.srs-radio input:checked~.srs-radio-label strong {
+    color: #2271b1 !important;
+}
+
+.srs-radio-label {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+}
+
+.srs-radio-label strong {
+    font-size: 14px !important;
+}
+
+.srs-radio-label small {
+    color: #646970 !important;
+    font-size: 12px !important;
+}
+
+/* Checkbox */
+.srs-post-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.srs-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #f6f7f7;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.srs-checkbox:hover {
+    background: #e8e8e8;
+}
+
+.srs-checkbox input:checked+span {
+    font-weight: 600;
+    color: #2271b1;
+}
+
+/* Data Status */
+.srs-data-status {
+    padding: 16px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.srs-status-ready {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.srs-status-empty {
+    background: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
+}
+
+.srs-data-status .dashicons {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    margin-top: 2px;
+}
+
+.srs-status-content strong {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.srs-status-content ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.srs-status-content li {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #50575e;
+}
+
+.srs-status-content li strong {
+    display: inline;
+    margin: 0;
+    color: #1d2327;
+}
+
+/* Data Actions */
+.srs-data-actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.srs-data-actions .button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.srs-data-actions .button .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+/* Progress */
+.srs-progress {
+    background: #f0f0f1;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+}
+
+.srs-progress-bar {
+    height: 4px;
+    background: linear-gradient(90deg, #2271b1, #72aee6);
+    border-radius: 2px;
+    animation: srs-progress-animation 1.5s ease-in-out infinite;
+    margin-bottom: 8px;
+}
+
+@keyframes srs-progress-animation {
+    0% {
+        width: 0%;
+        margin-left: 0%;
+    }
+
+    50% {
+        width: 60%;
+        margin-left: 20%;
+    }
+
+    100% {
+        width: 0%;
+        margin-left: 100%;
+    }
+}
+
+.srs-progress-text {
+    font-size: 13px;
+    color: #50575e;
+}
+
+/* Message */
+.srs-message {
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.srs-message--success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.srs-message--error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Submit Button */
+.submit .button-primary {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding-left: 12px;
+    padding-right: 16px;
+}
+
+.submit .button-primary .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    margin-top: 1px;
+}
+
+/* Notice */
+.srs-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 4px;
+    background: #e7f3fe;
+    border-left: 4px solid #2271b1;
+}
+
+.srs-notice .dashicons {
+    color: #2271b1;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.srs-notice p {
+    margin: 0;
+    color: #1e3a5f;
+}
