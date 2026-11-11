@@ -3,7 +3,7 @@ Contributors: isaachiroman
 Tags: search, realtime, json, instant search
 Requires at least: 5.6
 Tested up to: 6.9
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -34,6 +34,14 @@ Features:
 2.  Frontend Search Popup.
 
 == Changelog ==
+
+= 1.1.0 =
+*   Fix: keyword highlighting broke HTML when one keyword matched inside an inserted tag (e.g. "c" in class=).
+*   Fix: accent-insensitive highlighting, HTML-escaped titles, "đ" now matches "d".
+*   Performance: merge data by ID (O(n)), titles normalized once on load.
+*   Reliability: atomic JSON writes (temp file + rename) under an exclusive lock.
+*   JSON URL is versioned with ?v=filemtime; .htaccess adds compression + long cache.
+*   Smaller JSON: plain-text prices, unescaped slashes.
 
 = 1.0.0 =
 *   Initial release.

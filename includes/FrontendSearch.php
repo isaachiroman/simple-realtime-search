@@ -112,7 +112,7 @@ class FrontendSearch
                             <span class="srs-search-item__category">{{ data.taxonomy }}</span>
                             <# } #>
                             <# if ( data.price ) { #>
-                            <span class="srs-search-item__price">{{{ data.price }}}</span>
+                            <span class="srs-search-item__price">{{ data.price }}</span>
                             <# } #>
                         </div>
                     </a>
@@ -124,7 +124,7 @@ class FrontendSearch
                             <span class="srs-search-item__category">{{ data.taxonomy }}</span>
                             <# } #>
                             <# if ( data.price ) { #>
-                            <span class="srs-search-item__price">{{{ data.price }}}</span>
+                            <span class="srs-search-item__price">{{ data.price }}</span>
                             <# } #>
                         </div>
                     </a>
