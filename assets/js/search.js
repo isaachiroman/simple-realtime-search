@@ -89,6 +89,10 @@
             })
             .then(function(data) {
                 searchData = Array.isArray(data) ? data : [];
+                // Normalize titles once, not on every keystroke.
+                searchData.forEach(function(item) {
+                    item._norm = removeDiacritics(String(item.title || '').toLowerCase());
+                });
                 log('Loaded', searchData.length, 'items');
                 callback(searchData);
             })
@@ -103,28 +107,57 @@
      * Remove diacritics (Vietnamese accents).
      */
     function removeDiacritics(str) {
-        return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D');
     }
 
     /**
-     * Highlight keyword in text.
+     * Highlight keywords in a title (accent-insensitive, single pass, HTML-safe).
      */
+    function escapeHtml(s) {
+        return s.replace(/[&<>"']/g, function(c) {
+            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+    }
+
+    function normChar(ch) {
+        return ch.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D').toLowerCase();
+    }
+
     function highlightText(text, searchText) {
         if (!searchText) {
-            return text;
+            return escapeHtml(text);
         }
 
-        var words = searchText.trim().split(/\s+/);
-        var result = text;
+        // Accent-free string + map of positions back to the original string.
+        var chars = Array.from(text);
+        var norm = '';
+        var map = [];
+        chars.forEach(function(ch, i) {
+            var n = normChar(ch);
+            for (var k = 0; k < n.length; k++) { norm += n[k]; map.push(i); }
+        });
 
-        words.forEach(function(word) {
-            if (word.length > 0) {
-                var regex = new RegExp('(' + word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
-                result = result.replace(regex, '<span class="srs-highlight">$1</span>');
+        // Find all matches on the accent-free string.
+        var marks = new Array(chars.length).fill(false);
+        normChar(searchText).trim().split(/\s+/).forEach(function(word) {
+            if (!word) return;
+            var pos = norm.indexOf(word);
+            while (pos !== -1) {
+                for (var j = pos; j < pos + word.length; j++) marks[map[j]] = true;
+                pos = norm.indexOf(word, pos + word.length);
             }
         });
 
-        return result;
+        // Build HTML in one pass, merging adjacent marked chars into one span.
+        var html = '';
+        var open = false;
+        chars.forEach(function(ch, i) {
+            if (marks[i] && !open) { html += '<span class="srs-highlight">'; open = true; }
+            if (!marks[i] && open) { html += '</span>'; open = false; }
+            html += escapeHtml(ch);
+        });
+        if (open) html += '</span>';
+        return html;
     }
 
     /**
@@ -198,7 +231,7 @@
             var grouped = {};
 
             data.forEach(function(item) {
-                var normalizedTitle = removeDiacritics(item.title.toLowerCase());
+                var normalizedTitle = item._norm;
                 
                 // Check if all keywords exist in title.
                 var allMatch = words.every(function(word) {
