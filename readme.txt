@@ -3,7 +3,7 @@ Contributors: isaachiroman
 Tags: search, realtime, json, instant search
 Requires at least: 5.6
 Tested up to: 6.9
-Stable tag: 1.1.1
+Stable tag: 1.2.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -34,6 +34,9 @@ Features:
 2.  Frontend Search Popup.
 
 == Changelog ==
+
+= 1.2.0 =
+*   Settings below the "Enable Fast Search" switch are locked (dimmed, not clickable, skipped by Tab) while it is off. Values are kept when saving.
 
 = 1.1.1 =
 *   Fix: admin button icons sat lower than the label (WP core line-height on button dashicons).

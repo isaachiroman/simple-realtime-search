@@ -136,6 +136,14 @@
 
     // DOM Ready.
     $(function() {
+        // Lock the settings below while Fast Search is off.
+        // Uses inert instead of disabled so the values are still submitted on save.
+        $('#srs-enabled').on('change', function() {
+            var locked = !this.checked;
+            $('.srs-lockable').toggleClass('is-locked', locked).prop('inert', locked);
+            $('.srs-lock-hint').prop('hidden', !locked);
+        });
+
         // Generate button.
         $('#srs-generate-data').on('click', function() {
             var postTypes = getSelectedPostTypes();

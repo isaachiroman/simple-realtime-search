@@ -174,17 +174,24 @@ class Settings {
 
                         <div class="srs-field">
                             <label class="srs-toggle">
-                                <input type="checkbox" 
-                                       name="<?php echo esc_attr( self::OPTION_NAME ); ?>[enabled]" 
-                                       value="1" 
+                                <input type="checkbox"
+                                       id="srs-enabled"
+                                       name="<?php echo esc_attr( self::OPTION_NAME ); ?>[enabled]"
+                                       value="1"
                                        <?php checked( $enabled ); ?>>
                                 <span class="srs-toggle-slider"></span>
                                 <span class="srs-toggle-label">
                                     <?php esc_html_e( 'Enable Fast Search', 'simple-realtime-search' ); ?>
                                 </span>
                             </label>
+                            <p class="srs-lock-hint" <?php echo $enabled ? 'hidden' : ''; ?>>
+                                <span class="dashicons dashicons-lock"></span>
+                                <?php esc_html_e( 'Enable Fast Search to configure it and generate search data.', 'simple-realtime-search' ); ?>
+                            </p>
                         </div>
 
+                        <?php // Locked with inert (not disabled) so the values are still submitted on save. ?>
+                        <div class="srs-lockable<?php echo $enabled ? '' : ' is-locked'; ?>" <?php echo $enabled ? '' : 'inert'; ?>>
                         <div class="srs-field">
                             <label for="results_limit">
                                 <?php esc_html_e( 'Results Limit:', 'simple-realtime-search' ); ?>
@@ -225,8 +232,10 @@ class Settings {
                                 </label>
                             </div>
                         </div>
+                        </div>
                     </div>
 
+                    <div class="srs-lockable<?php echo $enabled ? '' : ' is-locked'; ?>" <?php echo $enabled ? '' : 'inert'; ?>>
                     <div class="srs-card">
                         <h2 class="srs-card-title">
                             <span class="dashicons dashicons-admin-post"></span>
@@ -339,6 +348,7 @@ class Settings {
                                 <p><?php esc_html_e( 'Please select at least one Post Type above and save settings to generate data.', 'simple-realtime-search' ); ?></p>
                             </div>
                         <?php endif; ?>
+                    </div>
                     </div>
 
                     <p class="submit">
