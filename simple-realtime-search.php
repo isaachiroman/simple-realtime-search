@@ -3,7 +3,7 @@
  * Plugin Name: Simple Realtime Search
  * Plugin URI:  https://github.com/isaachiroman/simple-realtime-search
  * Description: Realtime search using JSON data.
- * Version:     1.2.0
+ * Version:     1.2.1
  * Author:      isaachiroman
  * Author URI:  https://isaachiroman.com/
  * License:     GPLv2 or later
@@ -18,7 +18,7 @@ namespace SimpleRealtimeSearch;
 defined('ABSPATH') || exit;
 
 // Define Constants.
-define('SRS_VERSION', '1.2.0');
+define('SRS_VERSION', '1.2.1');
 define('SRS_PATH', plugin_dir_path(__FILE__));
 define('SRS_URL', plugin_dir_url(__FILE__));
 

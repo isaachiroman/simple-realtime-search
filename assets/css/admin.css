@@ -35,7 +35,7 @@
 }
 
 .srs-card-title .dashicons {
-    color: #2271b1;
+    color: var(--wp-admin-theme-color, #2271b1);
 }
 
 /* Fields */
@@ -107,8 +107,8 @@
 }
 
 .srs-wrap .srs-toggle input:checked+.srs-toggle-slider {
-    background-color: #2271b1 !important;
-    border-color: #135e96 !important;
+    background-color: var(--wp-admin-theme-color, #2271b1) !important;
+    border-color: var(--wp-admin-theme-color-darker-10, #135e96) !important;
 }
 
 .srs-wrap .srs-toggle input:checked+.srs-toggle-slider::after {
@@ -207,13 +207,13 @@
     transform: translate(-50%, -50%) scale(0) !important;
     width: 10px !important;
     height: 10px !important;
-    background: #2271b1 !important;
+    background: var(--wp-admin-theme-color, #2271b1) !important;
     border-radius: 50% !important;
     transition: transform 0.2s !important;
 }
 
 .srs-radio input:checked~.srs-radio-custom {
-    border-color: #2271b1 !important;
+    border-color: var(--wp-admin-theme-color, #2271b1) !important;
 }
 
 .srs-radio input:checked~.srs-radio-custom::after {
@@ -221,7 +221,7 @@
 }
 
 .srs-radio input:checked~.srs-radio-label strong {
-    color: #2271b1 !important;
+    color: var(--wp-admin-theme-color, #2271b1) !important;
 }
 
 .srs-radio-label {
@@ -263,7 +263,7 @@
 
 .srs-checkbox input:checked+span {
     font-weight: 600;
-    color: #2271b1;
+    color: var(--wp-admin-theme-color, #2271b1);
 }
 
 /* Data Status */
@@ -353,7 +353,7 @@
 
 .srs-progress-bar {
     height: 4px;
-    background: linear-gradient(90deg, #2271b1, #72aee6);
+    background: linear-gradient(90deg, var(--wp-admin-theme-color, #2271b1), rgba(var(--wp-admin-theme-color--rgb, 34, 113, 177), 0.5));
     border-radius: 2px;
     animation: srs-progress-animation 1.5s ease-in-out infinite;
     margin-bottom: 8px;
@@ -424,12 +424,12 @@
     gap: 12px;
     padding: 16px;
     border-radius: 4px;
-    background: #e7f3fe;
-    border-left: 4px solid #2271b1;
+    background: rgba(var(--wp-admin-theme-color--rgb, 34, 113, 177), 0.08);
+    border-left: 4px solid var(--wp-admin-theme-color, #2271b1);
 }
 
 .srs-notice .dashicons {
-    color: #2271b1;
+    color: var(--wp-admin-theme-color, #2271b1);
     flex-shrink: 0;
     margin-top: 2px;
 }
